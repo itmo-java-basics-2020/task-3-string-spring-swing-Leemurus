@@ -66,7 +66,7 @@ public class Task3Test {
         assertThat(instance.isPermutation("ABCdef", "ABcdef"), is(false));
         assertThat(instance.isPermutation("null", null), is(false));
         assertThat(instance.isPermutation(null, null), is(false));
-        assertThat(instance.isPermutation("", ""), is(false));
+        assertThat(instance.isPermutation("", ""), is(true));
         assertThat(instance.isPermutation(" a", " a "), is(false));
         assertThat(instance.isPermutation(" a  ", "  a "), is(true));
     }
@@ -85,7 +85,7 @@ public class Task3Test {
     public void test_matrixTranspose() {
         assertThat(instance.matrixTranspose(new int[][]{{1, -1}, {-1, 1}}), is(new int[][]{{1, -1}, {-1, 1}}));
         assertThat(instance.matrixTranspose(new int[][]{{}, {}}), is(new int[][]{{}, {}}));
-        assertThat(instance.matrixTranspose(null), is(new int[][]{{}, {}}));
+        assertThat(instance.matrixTranspose(null), is(new int[][]{}));
         assertThat(instance.matrixTranspose(new int[][]{{14, 228, 1337}, {420, 55, 69}, {777, 88, 911}}),
                 is(new int[][]{{14, 420, 777}, {228, 55, 88}, {1337, 69, 911}}));
         assertThat(instance.matrixTranspose(new int[][]{{1, 2, 23233, 10}, {114, 10, 5, 6}, {7, 37, 8, 9}, {0, 17, 8, 9}}),
@@ -111,8 +111,5 @@ public class Task3Test {
         Assert.assertEquals(0, instance.getStringsStartWithPrefix(null, "ac"));
         Assert.assertEquals(0, instance.getStringsStartWithPrefix(new String[]{"abc", "b cf", "abn"}, "bc"));
         Assert.assertEquals(0, instance.getStringsStartWithPrefix(new String[]{"abc", "bcf", "abn"}, null));
-
-
-
     }
 }
