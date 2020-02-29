@@ -25,9 +25,9 @@ public class Task3 {
     /**
      * Напишите функцию, которая принимает массив целых чисел и возвращает максимальное значение произведения двух его элементов.
      * Если массив состоит из одного элемента, то функция возвращает этот элемент.
-     *
+     * <p>
      * Если входной массив пуст или равен null - вернуть 0
-     *
+     * <p>
      * Пример: 2 4 6 -> 24
      */
     int getMaxProduct(int[] inputArray) {
@@ -47,7 +47,7 @@ public class Task3 {
      * Напишите функцию, которая вычисляет процент символов 'A' и 'B' (латиница) во входной строке.
      * Функция не должна быть чувствительна к регистру символов.
      * Результат округляйте путем отбрасывания дробной части.
-     *
+     * <p>
      * Пример: acbr -> 50
      */
     int getABpercentage(String input) {
@@ -91,22 +91,22 @@ public class Task3 {
             return "";
         }
 
-        String answer = "";
+        StringBuilder answer = new StringBuilder();
         int curCount = 1;
 
         for (int i = 1; i < input.length(); i++) {
             if (input.charAt(i) == input.charAt(i - 1)) {
                 curCount++;
             } else {
-                answer += String.valueOf(input.charAt(i - 1));
-                answer += String.valueOf(curCount);
+                answer.append(input.charAt(i - 1));
+                answer.append(curCount);
                 curCount = 1;
             }
         }
-        answer += String.valueOf(input.charAt(input.length() - 1));
-        answer += String.valueOf(curCount);
+        answer.append(input.charAt(input.length() - 1));
+        answer.append(curCount);
 
-        return answer;
+        return answer.toString();
     }
 
     /**
@@ -121,8 +121,8 @@ public class Task3 {
             return false;
         }
 
-        char []firstArr = one.toCharArray();
-        char []secondArr = two.toCharArray();
+        char[] firstArr = one.toCharArray();
+        char[] secondArr = two.toCharArray();
         Arrays.sort(firstArr);
         Arrays.sort(secondArr);
 
@@ -139,7 +139,7 @@ public class Task3 {
             return false;
         }
 
-        char []arr = s.toCharArray();
+        char[] arr = s.toCharArray();
         Arrays.sort(arr);
         for (int i = 1; i < arr.length; i++) {
             if (arr[i] == arr[i - 1]) {
@@ -152,7 +152,7 @@ public class Task3 {
 
     /**
      * Напишите функцию, которая транспонирует матрицу. Только квадратные могут быть на входе.
-     *
+     * <p>
      * Если входной массив == null - вернуть пустой массив
      */
     int[][] matrixTranspose(int[][] m) {
@@ -174,9 +174,9 @@ public class Task3 {
     /**
      * Напиишите функцию, принимающую массив строк и символ-разделитель,
      * а возвращает одну строку состоящую из строк, разделенных сепаратором.
-     *
+     * <p>
      * Запрещается пользоваться функций join
-     *
+     * <p>
      * Если сепаратор == null - считайте, что он равен ' '
      * Если исходный массив == null -  вернуть пустую строку
      */
@@ -189,13 +189,12 @@ public class Task3 {
             separator = ' ';
         }
 
-        String answer = (inputStrings.length > 0 ? inputStrings[0] : "");
+        StringBuilder answer = new StringBuilder(inputStrings.length > 0 ? inputStrings[0] : "");
         for (int i = 1; i < inputStrings.length; i++) {
-            answer += separator.toString() + inputStrings[i];
+            answer.append(separator.toString()).append(inputStrings[i]);
         }
 
-        return answer;
-
+        return answer.toString();
     }
 
     /**
